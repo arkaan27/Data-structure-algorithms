@@ -54,9 +54,11 @@ Example: "racecar"
 
 ### Singly Linked List
 
-class ListNode{
-
-        
+`class ListNode{
+        value: any,
+        next: ListNode
+}
+` 
 
 Example: 1 => 2 => 3 => 4 => 5 => None
 
