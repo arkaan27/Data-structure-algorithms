@@ -31,10 +31,57 @@ optimised algorithms.
 
 Example: [1,2,3,4,5]
 
+### Possible functions
+1. lookup: O(1)
+2. push: O(1)
+3. insert: O(n)
+4. delete: O(n)
+5. unshift: O(n)
+6. splice: O(n)
+
+### Static arrays
+
+[Juice, Apple, Cheese, Kale, Mango , Grapes]
+
+### Dynamic Arrays:
+
+da= []
+
+da.append("Juice")
+
 
 ## Hash Maps
 
 Example: {a:1, b:2, c: 3, d: 7}
+
+### Hash Function
+
+MD5 Hash: 5d41402avc4b2a76b9719d911017c592
+
+Different strings will have different Hash
+
+Indempotent- given the same input gives the same output
+
+### Hash Functions & Collisions
+
+1. Insert O(1)
+2. lookup O(1)
+3. delete O(1)
+4. search O(1)
+
+if Hash collisions happen then Big O notation becomes O(N)
+
+To deal with this there are [Linked Lists](##Linked-Lists)
+
+
+### Hash Tables vs Arrays
+        Array           Hash Tables
+        Search: O(N)    Search: O(1)
+        lookup: O(1)    lookup: O(1)
+        insert: O(n)    insert: O(1)
+        delete: O(n)    delete: O(1)
+
+All of the above is dependent if no hash collisions happen.
 
 
 ## Strings
@@ -49,7 +96,7 @@ Example:
 
 Example: "racecar" reversed is "racecar"
 
-## Linked Lists
+##Linked Lists
 
 
 ### Singly Linked List
