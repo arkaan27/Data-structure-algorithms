@@ -8,15 +8,15 @@ Given a linked list, return it in reverse.
 """
 
 
-def reversedLinkedList(head):
+def reversed_linked_list(head):
     # Time: O(n)
     # Space: O(1)
-    currentNode = head
+    current_node = head
     prev = None
-    while currentNode is not None:
-        next = currentNode.next
-        currentNode.next = prev
-        prev = currentNode
-        currentNode = next
+    while current_node is not None:
+        next = current_node.next
+        current_node.next = prev
+        prev = current_node
+        current_node = next
 
     return prev

@@ -14,7 +14,7 @@ Do not modify the linked list.
 """
 
 
-def findCycleFloydsMethod(head):
+def find_cycle_floyds_method(head):
     # Time : O(N)
     # Space: O(1)
     tortoise = head
@@ -38,20 +38,20 @@ def findCycleFloydsMethod(head):
     return p1
 
 
-def findCycle(head):
+def find_cycle(head):
     # Time: O(N)
     # Space: O(N)
     if head is None:
         return None
-    currentNode = head
-    seenNodes = {}
+    current_node = head
+    seen_nodes = {}
     p1 = 0
-    while currentNode:
-        if currentNode in seenNodes:
-            return currentNode
+    while current_node:
+        if current_node in seen_nodes:
+            return current_node
         else:
-            seenNodes[currentNode] = p1
-            currentNode = currentNode.next
+            seen_nodes[current_node] = p1
+            current_node = current_node.next
             p1 += 1
         return None
-    return currentNode
+    return current_node

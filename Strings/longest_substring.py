@@ -11,40 +11,41 @@ Assumtions:
 
 """
 
+
 def solution(S):
     # if len(S) <= 1:
     #     return len(S)
     # longest = 0
     # for x in range(0, len(S)):
     #     string_tracker = {}
-    #     currentLength = 0
+    #     current_length = 0
     #     for y in range(x, len(S)):
     #         currentChar = S[y]
     #         if not string_tracker[currentChar]:
-    #             currentLength += 1
+    #             current_length += 1
     #             string_tracker[currentChar] = True
-    #             longest = max(currentLength,longest)
+    #             longest = max(current_length,longest)
     #         else:
     #             break
     #
     # return longest
     if len(S) <= 1:
         return len(S)
-    maxLength = 0
+    max_length = 0
     for x in range(0, len(S)):
         string_tracker = []
-        currentLength = 0
+        current_length = 0
         for y in range(x, len(S)):
             if not S[y] in string_tracker:
-                currentLength += 1
+                current_length += 1
                 string_tracker.append(S[y])
-                maxLength = max(currentLength, maxLength)
+                max_length = max(current_length, max_length)
             else:
                 break
-    return maxLength
+    return max_length
 
     # string_tracker ={}
-    # maxLength = 0
+    # max_length = 0
     # if len(S) <= 1:
     #     return len(S)
     # x = 0
@@ -55,39 +56,39 @@ def solution(S):
     #         if not S[y] in string_tracker:
     #             string_tracker[S[y]] = y
     #         else:
-    #             maxLength = max(maxLength, len(string_tracker))
+    #             max_length = max(max_length, len(string_tracker))
     #             string_tracker.clear()
-    # return maxLength
+    # return max_length
 
 
 def optimise_solution(S):
     if len(S) <= 1:
         return len(S)
-    maxLength = 0
-    seenChar = {}
+    max_length = 0
+    seen_char = {}
     p1 = 0
     p2 = 0
     for p2 in range(0, len(S)):
         if S[p2] not in S[p1:p2]:
-            seenChar[S[p2]] = p2
-            print(seenChar)
+            seen_char[S[p2]] = p2
+            print(seen_char)
             p2 += 1
         else:
-            maxLength = max(maxLength, p2 - p1)
-            p1 = seenChar[S[p2]] + 1
-            seenChar[S[p2]] = p2
+            max_length = max(max_length, p2 - p1)
+            p1 = seen_char[S[p2]] + 1
+            seen_char[S[p2]] = p2
             p2 += 1
 
-    maxLength = max(maxLength, p2 - p1)
+    max_length = max(max_length, p2 - p1)
 
-    return maxLength
+    return max_length
 
 
 if __name__ == '__main__':
-    tc1 = "abccabb" # 3
-    tc2 = "cccccc" # 1
-    tc3 = "" # 0
-    tc4 = "abcbda" # 4
+    tc1 = "abccabb"  # 3
+    tc2 = "cccccc"  # 1
+    tc3 = ""  # 0
+    tc4 = "abcbda"  # 4
     tcs = [tc1, tc2, tc3, tc4]
     #
     for tc in tcs:

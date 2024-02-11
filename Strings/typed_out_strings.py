@@ -30,54 +30,54 @@ Optimised: Start with pointer at the end of the string.
 """
 
 
-def buildString(S):
-    output_S = []
+def build_string(S):
+    output_s = []
     for s in S:
         if s != "#":
-            output_S.append(s)
+            output_s.append(s)
         else:
             try:
-                output_S.pop()
+                output_s.pop()
             except IndexError:
                 pass
-    return output_S
+    return output_s
 
 
-def backSpaceCompare(S, T):
+def back_space_compare(S, T):
     # Time: O(a + b)^2
     # Space: O(a + b)
-    final_S = buildString(S)
-    final_T = buildString(T)
-    if len(final_S) != len(final_T):
+    final_s = build_string(S)
+    final_t = build_string(T)
+    if len(final_s) != len(final_t):
         return False
     else:
-        for x in range(0, len(final_S)):
-            if final_S[x] != final_T[x]:
+        for x in range(0, len(final_s)):
+            if final_s[x] != final_t[x]:
                 return False
 
     return True
 
 
-def backSpaceCompareOptimised(S, T):
+def back_space_compare_optimised(S, T):
     p1 = len(S) - 1
     p2 = len(T) - 1
     while p1 >= 0 or p2 >= 0:
         if S[p1] == '#' or T[p2] == '#':
             if S[p1] == '#':
-                backCount = 2
-                while backCount > 0:
+                back_count = 2
+                while back_count > 0:
                     p1 -= 1
-                    backCount -= 1
+                    back_count -= 1
                     if S[p1] == '#':
-                        backCount += 2
+                        back_count += 2
             else:
                 if T[p2] == '#':
-                    backCount = 2
-                    while backCount > 0:
+                    back_count = 2
+                    while back_count > 0:
                         p2 -= 1
-                        backCount -= 1
+                        back_count -= 1
                         if T[p2] == '#':
-                            backCount += 2
+                            back_count += 2
         else:
             if not S[p1] == T[p2]:
                 return False
@@ -97,6 +97,6 @@ if __name__ == '__main__':
 
     for tc in tcs:
         print("Brute Force solution")
-        print(backSpaceCompare(tc[0], tc[1]))
+        print(back_space_compare(tc[0], tc[1]))
         print("Optimised Solution")
-        print(backSpaceCompareOptimised(tc[0], tc[1]))
+        print(back_space_compare_optimised(tc[0], tc[1]))

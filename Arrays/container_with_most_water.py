@@ -18,38 +18,38 @@ Assumptions:
 """
 
 
-def MostWaterBruteForce(A):
+def most_water_brute_force(A):
     # Time: O(n^2)
     # Space: O(1)
 
-    maxArea = 0
+    max_area = 0
     for x in range(0, len(A)):
         for y in range(x + 1, len(A)):
             height = min(A[x], A[y])
             width = y - x
-            maxArea = max(maxArea, height * width)
+            max_area = max(max_area, height * width)
 
-    return maxArea
+    return max_area
 
 
-def MostWaterOptimised(A):
+def most_water_optimised(A):
     # Time: O(n)
     # Space: O(1)
     p1 = 0
     p2 = len(A) - 1
-    maxArea = 0
+    max_area = 0
     # Calculate Area
     while p1 < p2:
         height = min(A[p1], A[p2])
         width = p2 - p1
-        maxArea = max(maxArea, height * width)
+        max_area = max(max_area, height * width)
         # Logic to move pointer
         if A[p1] <= A[p2]:
             p1 += 1
         else:
             p2 -= 1
 
-    return maxArea
+    return max_area
 
 
 if __name__ == '__main__':
@@ -60,6 +60,6 @@ if __name__ == '__main__':
     tcs = [tc1, tc2, tc3, tc4]
     for tc in tcs:
         print("Brute Force Solutions")
-        print(MostWaterBruteForce(tc))
+        print(most_water_brute_force(tc))
         print("Optimised Solutions")
-        print(MostWaterOptimised(tc))
+        print(most_water_optimised(tc))

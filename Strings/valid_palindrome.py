@@ -13,7 +13,7 @@ import re
 from math import ceil
 
 
-def isPalindromeBruteForce(s: str) -> bool:
+def is_palindrome_brute_force(s: str) -> bool:
     # left and right pointer approach
     s = ''.join(ch for ch in s.lower() if ch.isalnum())
     # left pointer starting at 0
@@ -32,7 +32,7 @@ def isPalindromeBruteForce(s: str) -> bool:
     return True
 
 
-def isPalindromeBruteForceCentre(s: str) -> bool:
+def is_palindrome_brute_force_centre(s: str) -> bool:
     # Lower casing the string and removing all spaces and extra characters
     s = ''.join(ch for ch in s.lower() if ch.isalnum())
     # Checking if len of string is even or odd
@@ -54,7 +54,7 @@ def isPalindromeBruteForceCentre(s: str) -> bool:
     return True
 
 
-def isValidPalindromeReversed(s: str) -> bool:
+def is_valid_palindrome_reversed(s: str) -> bool:
     s = ''.join(ch for ch in s.lower() if ch.isalnum())
     if s == s[::-1]:
         return True
@@ -63,6 +63,6 @@ def isValidPalindromeReversed(s: str) -> bool:
 
 
 if __name__ == '__main__':
-    print(isPalindromeBruteForce(""))
-    print(isPalindromeBruteForceCentre(""))
-    print(isValidPalindromeReversed(""))
+    print(is_palindrome_brute_force(""))
+    print(is_palindrome_brute_force_centre(""))
+    print(is_valid_palindrome_reversed(""))

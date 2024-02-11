@@ -66,24 +66,24 @@ null<= 1 <=> 2 <=> 3 => null
 # 8
 
 
-def flattenMultiLevelDoublyLinkedList(head):
+def flatten_multi_level_doubly_linked_list(head):
     # Space: O(1)
     # Time: O(N)
     if head is None:
         return head
-    currentNode = head
-    while currentNode is not None:
-        if currentNode.child is None:
-            currentNode = currentNode.next
+    current_node = head
+    while current_node is not None:
+        if current_node.child is None:
+            current_node = current_node.next
         else:
-            tail = currentNode.child
+            tail = current_node.child
             while tail.next is not None:
                 tail = tail.next
-            tail.next = currentNode.next
+            tail.next = current_node.next
             if tail.next is not None:
                 tail.next.prev = tail
-            currentNode.next = currentNode.child
-            currentNode.next.prev = currentNode
-            currentNode.child = None
+            current_node.next = current_node.child
+            current_node.next.prev = current_node
+            current_node.child = None
 
     return head

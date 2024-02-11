@@ -22,33 +22,33 @@ Optimised Solution: Uses hashmap to record numberToFind and it's position
 
 """
 
-def twoSumBruteForce(A, T):
+def two_sum_brute_force(A, T):
     # Time: O(n^2)
     # Space: O(1)
 
     ans = "null"
 
     for x in range(0, len(A)):
-        numberToFind = T - A[x]
+        number_to_find = T - A[x]
         for y in range(x + 1, len(A)):
-            if numberToFind == A[y]:
+            if number_to_find == A[y]:
                 return [x, y]
 
     return ans
 
 
-def twoSumOptimised(A, T):
+def two_sum_optimised(A, T):
     # Time: O(N)
     # Space: O(1)
 
-    numMap = {}
+    num_map = {}
     for x in range(0, len(A)):
-        currentMapVal = numMap.get(A[x])
-        if currentMapVal is not None and currentMapVal >= 0:
-            return [currentMapVal, x]
+        current_map_val = num_map.get(A[x])
+        if current_map_val is not None and current_map_val >= 0:
+            return [current_map_val, x]
         else:
-            numberToFind = T - A[x]
-            numMap[numberToFind] = x
+            number_to_find = T - A[x]
+            num_map[number_to_find] = x
 
     return "null"
 
@@ -62,6 +62,6 @@ if __name__ == "__main__":
     tcs = [tc1, tc2, tc3, tc4, tc5]
     for tc in tcs:
         print("Brute force solutions:")
-        print(twoSumBruteForce(tc[0], tc[1]))
+        print(two_sum_brute_force(tc[0], tc[1]))
         print("Optimised Solutions")
-        print(twoSumOptimised(tc[0], tc[1]))
+        print(two_sum_optimised(tc[0], tc[1]))

@@ -8,7 +8,7 @@ Consider only alphanumeric characters and ignore case sensitivity
 """
 
 
-def validSubPalindrome(s: str, left: int, right: int):
+def valid_sub_palindrome(s: str, left: int, right: int):
     while left < right:
         if not s[left] == s[right]:
             return False
@@ -17,13 +17,13 @@ def validSubPalindrome(s: str, left: int, right: int):
     return True
 
 
-def isAlmostPalindrome(s: str) -> bool:
+def is_almost_palindrome(s: str) -> bool:
     s = ''.join(ch for ch in s.lower() if ch.isalnum())
     left = 0
     right = len(s) - 1
     while left < right:
         if not s[left] == s[right]:
-            return validSubPalindrome(s, left + 1, right) or validSubPalindrome(s, left, right - 1)
+            return valid_sub_palindrome(s, left + 1, right) or valid_sub_palindrome(s, left, right - 1)
         left += 1
         right -= 1
     return True
@@ -38,4 +38,4 @@ if __name__ == "__main__":
     tc6 = "ab" # True
     tcs = [tc1,tc2,tc3,tc4,tc5,tc6]
     for tc in tcs:
-        print(isAlmostPalindrome(tc))
+        print(is_almost_palindrome(tc))

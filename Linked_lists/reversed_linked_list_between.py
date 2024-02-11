@@ -11,56 +11,56 @@ Assumptions:
 """
 
 
-def reversedLinkedListBetween(head, m, n):
+def reversed_linked_list_between(head, m, n):
     if m and n <= 1:
         return head
     position = 1
-    currentNode = head
+    current_node = head
     start = head
     while position < m:
-        start = currentNode
-        currentNode = currentNode.next
+        start = current_node
+        current_node = current_node.next
         position += 1
-    newList = None
-    tail = currentNode
+    new_list = None
+    tail = current_node
     while m <= position <= n:
-        next = currentNode.next
-        currentNode.next = newList
-        newList = currentNode
-        currentNode = next
+        next = current_node.next
+        current_node.next = new_list
+        new_list = current_node
+        current_node = next
         position += 1
 
-    start.next = newList
-    tail.next = currentNode
+    start.next = new_list
+    tail.next = current_node
 
-    return newList
+    return new_list
 
 
-def reverseBetween(head, m, n):
+def reverse_between(head, m, n):
     if not head:
         return None
-    currentNode = head
+    current_node = head
     prev = None
     while m > 1:
-        prev = currentNode
-        currentNode = currentNode.next
+        prev = current_node
+        current_node = current_node.next
         m, n = m - 1, n - 1
 
     # The two pointers that will fix the final connections.
-    tail = currentNode
-    connectNode = prev
+    tail = current_node
+    connect_node = prev
 
     # Iteratively reverse the nodes until n becomes 0.
     while n:
-        third = currentNode.next
-        currentNode.next = prev
-        prev = currentNode
-        currentNode = third
+        third = current_node.next
+        current_node.next = prev
+        prev = current_node
+        current_node = third
         n -= 1
 
-    if connectNode:
-        connectNode.next = prev
+    if connect_node:
+        connect_node.next = prev
     else:
         head = prev
-    tail.next = currentNode
+    tail.next = current_node
     return head

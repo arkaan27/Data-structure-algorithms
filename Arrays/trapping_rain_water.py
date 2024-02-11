@@ -15,55 +15,55 @@ Optimised: Two pointer technique with logic to scan only once
 """
 
 
-def getTrappedRainWaterBruteForce(A):
+def get_trapped_rain_water_brute_force(A):
     # Time: O(N^2)
     # Space: O(1)
-    totalWater = 0
+    total_water = 0
     for x in range(0, len(A)):
-        leftP = x
-        rightP = x
-        maxLeft = 0
-        maxRight = 0
-        while leftP >= 0:
-            maxLeft = max(maxLeft, A[leftP])
-            leftP -= 1
-        while rightP <= len(A) - 1:
-            maxRight = max(maxRight, A[rightP])
-            rightP += 1
-        currentWater = min(maxLeft, maxRight) - A[x]
-        if currentWater >= 0:
-            totalWater += currentWater
+        left_p = x
+        right_p = x
+        max_left = 0
+        max_right = 0
+        while left_p >= 0:
+            max_left = max(max_left, A[left_p])
+            left_p -= 1
+        while right_p <= len(A) - 1:
+            max_right = max(max_right, A[right_p])
+            right_p += 1
+        current_water = min(max_left, max_right) - A[x]
+        if current_water >= 0:
+            total_water += current_water
 
-    return totalWater
+    return total_water
 
 
-def getTrappedRainWaterOptimisation(A):
+def get_trapped_rain_water_optimisation(A):
     # Time: O(N)
     # Space: O(1)
 
-    totalWater = 0
+    total_water = 0
     p1 = 0
     p2 = len(A) - 1
-    maxLeft = 0
-    maxRight = 0
+    max_left = 0
+    max_right = 0
 
     # Logic for pointers
     while p1 < p2:
         if A[p1] <= A[p2]:
-            if A[p1] >= maxLeft:
-                maxLeft = A[p1]
+            if A[p1] >= max_left:
+                max_left = A[p1]
             else:
-                totalWater += maxLeft - A[p1]
+                total_water += max_left - A[p1]
 
             p1 += 1
         else:
-            if A[p2] >= maxRight:
-                maxRight = A[p2]
+            if A[p2] >= max_right:
+                max_right = A[p2]
             else:
-                totalWater += maxRight - A[p2]
+                total_water += max_right - A[p2]
 
             p2 -= 1
-    return totalWater
+    return total_water
 
 
 if __name__ == '__main__':
@@ -74,6 +74,6 @@ if __name__ == '__main__':
     tcs = [tc1, tc2, tc3, tc4]
     for tc in tcs:
         print("BruteForce Solutions")
-        print(getTrappedRainWaterBruteForce(tc))
+        print(get_trapped_rain_water_brute_force(tc))
         print("Optimised Solution")
-        print(getTrappedRainWaterOptimisation(tc))
+        print(get_trapped_rain_water_optimisation(tc))

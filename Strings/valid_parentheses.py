@@ -17,7 +17,7 @@ Does an empty string count as valid?
 """
 
 
-def isValidParentheses(s: str):
+def is_valid_parentheses(s: str):
     # Space : O(N)
     # Time: O(N)
     if len(s) <= 1:
@@ -33,9 +33,9 @@ def isValidParentheses(s: str):
         else:
             if not stack:
                 return False
-            leftBracket = stack.pop()
-            correctBracket = parens[leftBracket]
-            if correctBracket != x:
+            left_bracket = stack.pop()
+            correct_bracket = parens[left_bracket]
+            if correct_bracket != x:
                 return False
     return not stack
 
@@ -50,4 +50,4 @@ if __name__ == '__main__':
     tcs = [tc1, tc2, tc3, tc4, tc5]
 
     for tc in tcs:
-        print(isValidParentheses(tc))
+        print(is_valid_parentheses(tc))
