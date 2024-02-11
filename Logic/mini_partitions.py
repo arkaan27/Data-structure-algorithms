@@ -12,7 +12,7 @@ that they sum up to n.
 """
 
 
-def isDeciBinaryNumber(x):
+def is_deci_binary_number(x):
     y = str(x)
     if y[0] == 0:
         return False
@@ -24,28 +24,28 @@ def isDeciBinaryNumber(x):
     return True
 
 
-def initialDeciNumber(n):
-    deciNumber = '1'
+def initial_deci_number(n):
+    deci_number = '1'
     for x in range(0, len(n) - 1):
-        deciNumber += '0'
+        deci_number += '0'
 
-    return int(deciNumber)
+    return int(deci_number)
 
 
-def minPartitions(n: str) -> int:
+def min_partitions(n: str) -> int:
     if len(n) == 0:
         return 0
-    numberMap = {}
+    number_map = {}
     for c in n:
         if c == '0':
-            numberMap[c] = 1
+            number_map[c] = 1
         else:
-            numberMap[c] = int(c)
-    minimumPartition = max(numberMap, key=numberMap.get)
-    return int(minimumPartition)
+            number_map[c] = int(c)
+    minimum_partition = max(number_map, key=number_map.get)
+    return int(minimum_partition)
 
 
-def minPartitionsOptimised(n: str) -> int:
+def mini_partitions_optimised(n: str) -> int:
     if len(n) == 0:
         return 0
     else:
@@ -59,4 +59,4 @@ if __name__ == '__main__':
     tc4 = '27346209830709182346'  # 9
     tcs = [tc1, tc2, tc3, tc4]
     for tc in tcs:
-        print(minPartitionsOptimised(tc))
+        print(mini_partitions_optimised(tc))
