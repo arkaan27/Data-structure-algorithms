@@ -23,5 +23,17 @@ class TreeNode:
 
 
 def is_valid_bst(root: Optional[TreeNode]) -> bool:
-    pass
+    if root is None:
+        return True
+    return dfs(root, float('-inf'), float('inf'))
 
+
+def dfs(node: Optional[TreeNode], min_val, max_val):
+    if node.val <= min_val or node.val >= max_val:
+        return False
+    if node.left:
+        if not dfs(node.left, min_val, node.val):
+            return False
+    if node.right:
+        if not dfs(node.right, node.val, min_val):
+            return False
