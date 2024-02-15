@@ -12,7 +12,7 @@ class PriorityQueue:
     def peek(self):
         return self.heap[0] if self.heap else None
 
-    def isEmpty(self):
+    def is_empty(self):
         return not self.heap
 
     def push(self, value):
@@ -36,5 +36,5 @@ pq.push(7)
 pq.push(40)
 pq.push(22)
 
-while not pq.isEmpty():
+while not pq.is_empty():
     print(pq.pop())
