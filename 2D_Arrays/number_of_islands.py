@@ -22,6 +22,9 @@ directions = [
 ]
 
 
+# BFS is a better solution in this case due to it not using a stack or recursive nature. This means the space complexity
+# is lower and hence a better approach.
+
 def number_of_islands_bfs(matrix):
     if not matrix or not matrix[0]:
         return 0
@@ -70,4 +73,3 @@ def number_of_islands_dfs(matrix):
                 island_count += 1
                 dfs(matrix, row, col)
     return island_count
-
