@@ -47,6 +47,8 @@ def can_finish(num_of_courses, prerequisites):
     return True
 
 
+# Mainly works with DAG -> Directed Acyclic Graphs and since question is asking us to find a cycle, we can use that as
+# our advantage.
 def can_finish_with_adj(num_of_courses, prerequisites):
     in_degree = [0] * num_of_courses
     adj_list = [[] for _ in range(num_of_courses)]
