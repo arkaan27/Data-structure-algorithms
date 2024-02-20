@@ -17,7 +17,7 @@ No, the weight of edges is always positive
 
 """
 
-import heapq  # Import the heapq module to use the heap queue (or priority queue) algorithm
+import heapq
 
 
 class PriorityQueue:
