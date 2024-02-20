@@ -47,6 +47,30 @@ def can_finish(num_of_courses, prerequisites):
     return True
 
 
+def can_finish_with_adj(num_of_courses, prerequisites):
+    in_degree = [0] * num_of_courses
+    adj_list = [[] for _ in range(num_of_courses)]
+
+    for src, dest in prerequisites:
+        in_degree[src] += 1
+        adj_list[dest].append(src)
+
+    stack = [i for i, degree in enumerate(in_degree) if degree == 0]
+
+    count = 0
+
+    while stack:
+        current = stack.pop()
+        count += 1
+
+        for neighbor in adj_list[current]:
+            in_degree[neighbor] -= 1
+            if in_degree[neighbor] == 0:
+                stack.append(neighbor)
+
+    return count == num_of_courses
+
+
 if __name__ == "__main__":
     n = 6
     prerequisites = [
@@ -56,3 +80,4 @@ if __name__ == "__main__":
         [4, 5]
     ]
     print(can_finish(n, prerequisites))
+    print(can_finish_with_adj(n, prerequisites))
