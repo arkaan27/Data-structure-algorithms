@@ -73,6 +73,30 @@ def can_finish_with_adj(num_of_courses, prerequisites):
     return count == num_of_courses
 
 
+# Solution without requiring us to create an adjacency list with topological sort
+def can_finish_topological_sort(num_courses, prerequisites):
+    in_degree = [0] * num_courses
+
+    for pair in prerequisites:
+        in_degree[pair[0]] += 1
+
+    stack = [i for i, degree in enumerate(in_degree) if degree == 0]
+
+    count = 0
+
+    while stack:
+        current = stack.pop()
+        count += 1
+
+        for pair in prerequisites:
+            if pair[1] == current:
+                in_degree[pair[0]] -= 1
+                if in_degree[pair[0]] == 0:
+                    stack.append(pair[0])
+
+    return count == num_courses
+
+
 if __name__ == "__main__":
     n = 6
     prerequisites = [
@@ -83,3 +107,4 @@ if __name__ == "__main__":
     ]
     print(can_finish(n, prerequisites))
     print(can_finish_with_adj(n, prerequisites))
+    print(can_finish_topological_sort(n, prerequisites))
