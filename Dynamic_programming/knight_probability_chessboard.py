@@ -37,11 +37,14 @@ def knight_p_recurs(n, k, row, column):
 
     return result
 
+# Applying dynamic programming to reduce time complexity:
+# Time: O(N^2 x k) Space: O(N^2 x k)
 def knight_p_dp(n, k, row, column):
     dp = [[[None for _ in range(k + 1)] for _ in range(n)] for _ in range(n)]
     return recurse(n, k, row, column, dp)
 
-def recurse(n, k , row, column, dp):
+
+def recurse(n, k, row, column, dp):
     if k == 0:
         return 1
     if row < 0 or row >= n or column < 0 or column >= n:
@@ -58,11 +61,10 @@ def recurse(n, k , row, column, dp):
     return response
 
 
-
 if __name__ == "__main__":
     n = 6
     k = 3
     row = 2
     column = 2
-    print(knight_p_recurs(n, k , row, column))
-    print(knight_p_dp(n, k , row, column))
+    print(knight_p_recurs(n, k, row, column))
+    print(knight_p_dp(n, k, row, column))
