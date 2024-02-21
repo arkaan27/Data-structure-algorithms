@@ -10,6 +10,7 @@ import time
 
 # The top-down recursive approach to solving the problem. This is very inefficient but first step
 # to solving the problem
+# Time: 2^N , Space: 2^N
 def min_cost_climbing_stairs_td(cost):
     n = len(cost)
     return min(min_cost(n - 1, cost), min_cost(n - 2, cost))
@@ -24,6 +25,7 @@ def min_cost(i, cost):
 
 
 # Memoizing our redundant recursive calls using dynamic programming
+# Time: O(N), Space: O(N)
 def min_cost_climbing_stairs_dp(cost):
     n = len(cost)
     dp = [None] * n
