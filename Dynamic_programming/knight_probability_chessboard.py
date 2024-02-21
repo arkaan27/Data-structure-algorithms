@@ -23,7 +23,7 @@ DIRECTIONS = [
 
 # Recursive solution without dynamic programming
 # Time: O(8^k) Space O(8^k)
-def knight_p(n, k, row, column):
+def knight_p_recurs(n, k, row, column):
     if k == 0:
         return 1
     if row < 0 or row >= n or column < 0 or column >= n:
@@ -33,9 +33,30 @@ def knight_p(n, k, row, column):
 
     for i in range(len(DIRECTIONS)):
         d = DIRECTIONS[i]
-        result += knight_p(n, k - 1, row + d[0], column + d[1]) / 8
+        result += knight_p_recurs(n, k - 1, row + d[0], column + d[1]) / 8
 
     return result
+
+def knight_p_dp(n, k, row, column):
+    dp = [[[None for _ in range(k + 1)] for _ in range(n)] for _ in range(n)]
+    return recurse(n, k, row, column, dp)
+
+def recurse(n, k , row, column, dp):
+    if k == 0:
+        return 1
+    if row < 0 or row >= n or column < 0 or column >= n:
+        return 0
+
+    if dp[row][column][k] is not None:
+        return dp[row][column][k]
+
+    response = 0
+    for d in DIRECTIONS:
+        response += recurse(n, k - 1, row + d[0], column + d[1], dp) / 8
+
+    dp[row][column][k] = response
+    return response
+
 
 
 if __name__ == "__main__":
@@ -43,4 +64,5 @@ if __name__ == "__main__":
     k = 3
     row = 2
     column = 2
-    print(knight_p(n, k , row, column))
+    print(knight_p_recurs(n, k , row, column))
+    print(knight_p_dp(n, k , row, column))
