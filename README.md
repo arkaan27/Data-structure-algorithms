@@ -1,8 +1,7 @@
-# Competitive Programming
+# Data Structures & Algorithms
 
-Crucial information that is necessary to ace programming interviews.
-
-This repository also consists of possible questions asked in interviews with FAANG companies and their solutions.
+This is my journey towards learning data structures and algorithms that are heavily used in the industry and helps solve
+most complex problems in the world.
 
 Language: Python
 
